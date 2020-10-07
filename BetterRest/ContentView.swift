@@ -17,13 +17,15 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            Form {
+                VStack(alignment: .leading, spacing: 0) {
                 Text("When do you want to wake up?")
                     .font(.headline)
                 
                 DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                     .labelsHidden()
-                
+                }
+                VStack(alignment: .leading, spacing: 0) {
                 Text("Desired amount of sleep")
                     .font(.headline)
                 
@@ -31,6 +33,8 @@ struct ContentView: View {
                     Text("\(sleepAmount, specifier: "%g") hours")
                     
                 }
+                }
+                VStack(alignment: .leading, spacing: 0) {
                     Text("Daily coffee intake")
                         
                     .font(.headline)
@@ -40,6 +44,7 @@ struct ContentView: View {
                         } else {
                             Text("\(coffeeAmount) cups")
                         }
+                    }
                     }
                 }
             .navigationBarTitle("BetterRest")
